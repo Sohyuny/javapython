@@ -14,7 +14,7 @@ public class GG {
 		System.out.println(num1>num2 && num2<num3);
 		
 		/*
-		 * num1<num2<num3 이런식으로는 불가능 중간에 &&(그리고) 필요
+		 * num1<num2<num3 이런식으로는 불가능 중간에 &&(그리고) ||(or) 필요
 		 */
 		
 		System.out.println(!true); // !는 부정
