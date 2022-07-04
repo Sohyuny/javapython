@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{counter-increment:rint; }
+        p::before{content:counter(rint)". ";padding-right:5px;color: blueviolet;background-color: beige;}
+        p::after{content:attr(datapage)"page";margin-left: 20px;color:palevioletred;background-color:beige;}
+        p::first-letter{font-size: 3em;}
+    </style>
+</head>
+<body>
+    <h1>head</h1>
+    <p datapage = "53">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis enim totam, necessitatibus unde rerum ipsam atque modi corporis! Qui, quibusdam asperiores? Eligendi impedit iure, quo quas deserunt voluptates ea. Nostrum?</p>
+    <p datapage = "277">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur doloremque molestias in doloribus placeat recusandae nesciunt, iusto modi ratione, vero facilis dicta odit veniam deserunt est reiciendis nisi quibusdam aliquam?</p>
+</body>
+</html>
