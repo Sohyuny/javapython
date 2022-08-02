@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
     <fullyQualifiedTypeName name="ex0705.BankAccount"/>
     <fullyQualifiedTypeName name="ex0705.Triangle"/>
     <fullyQualifiedTypeName name="ex0708.EX04"/>
     <fullyQualifiedTypeName name="java.time.Clock"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.awt.print.Printable"/>
 </qualifiedTypeNameHistroy>
