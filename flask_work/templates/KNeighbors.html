@@ -7,7 +7,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <title>법무법인 한바다</title>
 </head>
 
@@ -21,7 +23,7 @@
                     우영우 변호사
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div>
@@ -39,14 +41,14 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
+            <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     최수연 변호사
                 </button>
             </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample">
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div>
                         <img src="/static/img/csy.jpg" style="width: 400px;" />
@@ -62,41 +64,68 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThree">
+            <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     최근접이웃회귀
                 </button>
             </h2>
-            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                data-bs-parent="#accordionFlushExample">
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>
+                    <strong>임의의 어떤 '숫자'를 예측하는 문제를 회귀(Regression)라고 한다.</strong><br>
+                    그중 K-NN Regression(K-최근접 이웃 회귀) 알고리즘은 주변의 가장 가까운 K개의 샘플을 통해 값을 예측하는 방식이다.
+                    예를 들어 가장 간단한 방식으로는 K개 샘플의 평균을 이용할 수 있다. 
+                    <code>Regression</code>
+                    <p class='p-3'>
+                        x_train = np.array([[2, 1],[3, 2],[3, 4],[5, 5],[7, 5],[2, 5],[8, 9],[9, 10],[6, 12]])<br>
+                        x_test = np.array([[9, 2],[6, 10],[2, 4]])<br>
+                        y_train = np.array([3, 5, 7, 10, 12, 7, 13, 13, 12])<br>
+                        y_test = np.array([13, 12, 6])<br>
+                        <br>
+                        knr = KNeighborsRegressor(n_neighbors=3)<br>
+                        knr.fit(x_train,y_train)<br>
+                    </p>
+                    <h3>{{pred1}}</h3>
+                    <div class="text-center p-5">
+                        <form method="post">
+                            <h3> x0 = </h3>
+                            <input class="form-control" type="text" name="x0" value="4">
+                            <h3> x1 = </h3>
+                            <input class="form-control" type="text" name="x1" value="5">
+                            <input type="submit" 
+                                    class="btn btn-primary m-3" 
+                                    value="예측하기">
+                        </form>
+                    </div>
+                    <div>
+                        <img src="/static/img/x0_x1_y1.png">
+                        <img src="/static/img/x0_x1_y2.png">
+                        <img src="/static/img/x0_x1_y3.png">
+                        <img src="/static/img/x0_x1_y4.png">
+                    </div>
                 </div>
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingFour">
+            <h2 class="accordion-header" id="headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                     최근접이웃분류
                 </button>
             </h2>
-            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
-                data-bs-parent="#accordionFlushExample">
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <strong>최근접 이웃 탐색(영어: nearest neighbor search)은 가장 가까운 (또는 가장 근접한) 점을 찾기 위한 최적화 문제이다.</strong><br>
+                    <strong>최근접 이웃 탐색(영어: nearest neighbor search)은 가장 가까운 (또는 가장 근접한) 점을 찾기 위한 최적화
+                        문제이다.</strong><br>
                     근접 탐색(proximity search), 유사도 탐색(similarity search), 최근접 점쌍 문제(closest point search)라고도
-                    불린다.<code>.accordion-body</code>
+                    불린다.<code>.nearest .proximity .similarity</code>
                     <p class="p-3">
                         knclf = KNeighborsClassifier(n_neighbors=1)<br>
                         knclf.fit(x_data, y_data)
                     </p>
-                    <h3>{{pred}}</h3>
+                    <h3>{{pred2}}</h3>
                     <div>
                         <form method='post' enctype="multipart/form-data">
                             <div class="mb-3">
@@ -120,10 +149,6 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
 </body>
 
