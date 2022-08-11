@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread('vanil.jpg',cv2.IMREAD_COLOR)
+img = cv2.imread('20220811/vanil.jpg',cv2.IMREAD_COLOR)
 
 print(img.shape)
 print(img.size)
