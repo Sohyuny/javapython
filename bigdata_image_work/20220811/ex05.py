@@ -10,5 +10,5 @@ img[:,:,2] = 0
 cv2.imshow('vanil',img)
 cv2.waitKey(0)
 
-if img[:,:,1]>20 and img[:,:,2]>50:
-    img
+test = img[:,:,1:]==np.array([0])
+print(test)
