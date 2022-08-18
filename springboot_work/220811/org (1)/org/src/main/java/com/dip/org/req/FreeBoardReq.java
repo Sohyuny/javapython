@@ -11,6 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -27,5 +28,5 @@ public class FreeBoardReq {
     private String filename;
     private int hits;
 
-    private String regdata;
+    private LocalDateTime regdata;
 }

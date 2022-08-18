@@ -13,13 +13,16 @@ import java.time.LocalDateTime;
 @ToString
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
     private String email;
     private String remark;
+
     private String gender;
+    private String password;
+
     private LocalDateTime regdate;
 
 }

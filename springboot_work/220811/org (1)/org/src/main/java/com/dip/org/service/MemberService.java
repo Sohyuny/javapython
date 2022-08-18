@@ -2,7 +2,8 @@ package com.dip.org.service;
 
 import com.dip.org.entity.FreeBoard;
 import com.dip.org.entity.Member;
-import com.dip.org.repository.MemberRepository;
+import com.dip.org.respository.MemberRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

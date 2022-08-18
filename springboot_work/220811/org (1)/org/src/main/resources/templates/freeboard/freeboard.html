@@ -4,26 +4,25 @@
       layout:decorate="~{layout/layout}">
 
 <div layout:fragment="content">
-<h1>freeboard</h1>
-    <Strong> dropdown > freeboard </Strong>
-    <div class = "container">
-        <div class = "row p-3">
+    <h1>freeboard</h1>
+    <strong>dropdown > freeboard</strong>
+    <div class="container">
+        <div class="row p-3">
             <div class="col-3">
                 <a class="btn btn-outline-secondary" href="/freeboard/write">Write</a>
             </div>
-        </div>
-        <div class="col-6">
-
-        </div>
-        <div class="col-3">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <div class="col-6">
+            </div>
+            <div class="col-3">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </div>
-    <div clas="p-3">
-        <table class="table table-hover table-striped">
+    <div class="p-3">
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
                 <th scope="col">번호</th>
@@ -35,14 +34,18 @@
             </thead>
             <tbody>
             <tr th:each="freeboard:${list}">
-                <th scope="row" th:text = "${freeboard.id}">1</th>
-                <td th:text = "${freeboard.title}">Otto</td>
-                <td th:text = "${freeboard.hits}">Otto</td>
-                <td th:text = "${freeboard.filename}">@mdo</td>
-                <td th:text = "${freeboard.regdate}">@mdo</td>
+                <th scope="row" th:text="${freeboard.id}">1</th>
+                <td><a href="#" th:href="@{/freeboard/view(id=${freeboard.id})}" th:text="${freeboard.title}">내용</a></td>
+                <td th:text="${freeboard.hits}">Otto</td>
+                <td th:text="${freeboard.filename}">@mdo</td>
+                <td th:text="|${#temporals.format(freeboard.regdate, 'yyyy-MM-dd')}|">@mdo</td>
             </tr>
             </tbody>
         </table>
+        <!--        <img th:src="@{/img/a.png}" src="">-->
+<!--        <img th:src="@{/img/wyw.jpg}" src="">-->
     </div>
+
 </div>
+
 </html>

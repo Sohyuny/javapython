@@ -1,4 +1,4 @@
-package com.dip.org.repository;
+package com.dip.org.respository;
 
 import com.dip.org.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
