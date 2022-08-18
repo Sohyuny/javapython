@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/mybootstrap.css" rel="stylesheet">
     <link href="/css/a.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/smarteditor/js/HuskyEZCreator.js}" charset="utf-8"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
         *{
@@ -18,6 +20,9 @@
         color : black;
         }
     </style>
+
+    <th:block layout:fragment="script"></th:block>
+    <th:block layout:fragment="css"></th:block>
 </head>
 <body>
 <div class="container">

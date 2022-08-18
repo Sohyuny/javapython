@@ -2,12 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
+<th:block layout:fragment="script">
+
+    <script th:inline="javascript">
+        let oEditors = []
+
+        function smartEditor() {
+          console.log("Naver SmartEditor")
+          nhn.husky.EZCreator.createInIFrame({
+            oAppRef: oEditors,
+            elPlaceHolder: "editorTxt",
+            sSkinURI: "/smarteditor/SmartEditor2Skin.html",
+            fCreator: "createSEditor2"
+          })
+        }
+
+        $(document).ready(function() {
+          smartEditor()
+           $('#savebutton').click(function(){
+                oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+                 $("#frm").submit();
+            });
+        })
+    </script>
+
+</th:block>
+
 <div layout:fragment="content" class="p-3">
-    <h1>freeboard</h1>
+    <h1 style="font-weight:bold;">Freeboard</h1>
     <strong>dropdown > write</strong>
     <div class="d-flex justify-content-center">
         <div class="w-100 p-3" style="color:black; background-color:#efefef; border-radius:5px;">
-            <form method="post" action="/freeboard/write" th:object="${freeBoardReq}" enctype="multipart/form-data">
+            <form method="post" action="/freeboard/write" th:object="${freeBoardReq}" enctype="multipart/form-data"
+                  id="frm">
                 <h3>글쓰기</h3>
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
@@ -18,19 +45,26 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="content" class="form-label">Content</label>
-                    <textarea class="form-control" id="content" name="content" rows="10"
-                              th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'" th:field="*{content}"></textarea>
-                    <div th:if="${#fields.hasErrors('content')}" class="invalid-feedback">
-                        not empty
+                    <div id="smarteditor">
+                       <textarea name="editorTxt" id="editorTxt"
+                                 rows="20" cols="10"
+                                 placeholder="내용을 입력해주세요"
+                                 style="width: 100%;background-color:white"
+                                 th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"
+                                 th:field="*{content}"></textarea>
+                        <div th:if="${#fields.hasErrors('content')}" class="invalid-feedback">
+                            not empty
+                        </div>
                     </div>
+
+
                 </div>
                 <div class="mb-3 w-25">
                     <label for="file" class="form-label">File upload</label>
                     <input class="form-control" type="file" id="file" name="file">
                 </div>
                 <div class="d-flex justify-content-center p-3">
-                    <input class="btn btn-secondary" type="submit" value="submit">
+                    <input id="savebutton" class="btn btn-secondary" type="button" value="submit">
                 </div>
             </form>
         </div>

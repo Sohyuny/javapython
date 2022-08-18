@@ -19,6 +19,7 @@ public class ResourceConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/img/**").addResourceLocations("classpath:/static/img/").setCachePeriod(60 * 60 * 24 * 365);
         /* '/font/**'로 호출하는 자원은 '/static/font/' 폴더 아래에서 찾는다. */
         registry.addResourceHandler("/font/**").addResourceLocations("classpath:/static/font/").setCachePeriod(60 * 60 * 24 * 365);
+        registry.addResourceHandler("/smarteditor/**").addResourceLocations("classpath:/static/smarteditor/").setCachePeriod(60 * 60 * 24 * 365);
     }
 
 }
