@@ -3,40 +3,55 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <div layout:fragment="content" class="p-3">
-    <h1 style="font-weight:bold;">Freeboard</h1>
+    <a href="/freeboard"><h1 style="font-weight:bold;">Freeboard</h1></a>
     <strong>dropdown >view</strong>
     <div class="d-flex justify-content-center">
         <div class="w-100 p-3" style="color:black;">
             <!--                <h3>글쓰기</h3>-->
-            <div class="mb-3 text-center">
+            <div class="text-center my-3 mt-3 mb-5">
                 <h3 th:text="${freeboard.title}" style="font-weight:bold;"></h3>
             </div>
-            <div class="mb-3">
+            <div class="mb-5">
                 <p th:utext="${freeboard.content}"></p>
             </div>
             <div class="w-100 d-flex justify-content-center">
-                <div class="mb-3 ">
+                <div class="mb-3" th:if="${!#strings.isEmpty(freeboard.filename)}">
                     <img th:src="@{${'/img/' + freeboard.filename}}" style="width:100%;">
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="m-3">
+        <a class="btn btn-outline-secondary" href="/freeboard">목록</a>
+        <a class="btn btn-outline-secondary" th:href="@{/freeboard/delete(id=${freeboard.id})}">삭제</a>
+        <a class="btn btn-outline-secondary" th:href="@{/freeboard/write(id=${freeboard.id})}">수정</a>
+    </div>
+
     <div>
-        <h3>댓글</h3>
+        <div th:each="freeboardtail : ${freeboard.list}">
+            <span th:text="${freeboardtail.t_name}"></span>
+            : <span th:text="${freeboardtail.t_content}"></span>
+        </div>
+    </div>
+
+    <div>
+<!--        <h5 style="font-weight:bold;">댓글</h5>-->
         <form method="post">
             <input type="hidden" name="id" th:value="${freeboard.id}">
             <div>
-                작성자<input class="form-control" type="text" name="t_name">
+                작성자
+                <input class="form-control" type="text" name="t_name">
             </div>
             <div>
                 내용
-                <textarea class="form-control" name="t_content"></textarea>
+                <textarea name="t_content" class="form-control"></textarea>
             </div>
-            <div>
+            <div class="m-3">
                 <input class="btn btn-outline-secondary" type="submit" value="작성">
             </div>
         </form>
     </div>
+
 </div>
 </html>

@@ -12,7 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class FreeBoardTail {
 
-    private long board_id;
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "board_id")
+    private FreeBoard freeBoard;
+
 
     @Id
     @Column(name = "id", nullable = false)

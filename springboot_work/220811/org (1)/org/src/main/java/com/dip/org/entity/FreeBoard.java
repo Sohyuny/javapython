@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class FreeBoard {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "board_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
