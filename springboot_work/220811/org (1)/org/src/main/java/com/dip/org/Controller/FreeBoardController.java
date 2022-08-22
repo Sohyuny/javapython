@@ -47,27 +47,6 @@ public class FreeBoardController {
     @GetMapping("freeboard")
     public String freeboard(Model model){
 
-//        freeBoardService.regist(
-//                FreeBoard.builder()
-//                        .id(1L)
-//                        .title("무더위 이정후, 민소매 셔츠로 훈련! [포토]")
-//                        .content("17일 경기도 수원 kt위즈파크에서 ‘2022 신한은행 SOL KBO리그’ kt 위즈와 키움 히어로즈의 경기가 열린다. 경기 전 키움 이정후가 타격 훈련을 하고 있다.\n" +
-//                                "수원 | 김민성 기자 marineboy@donga.com")
-//                        .regdate(LocalDateTime.now())
-//                        .build()
-//        );
-//
-//        freeBoardService.regist(
-//                FreeBoard.builder()
-//                        .id(2L)
-//                        .title("오재일 '반달 눈웃음' [MK포토]")
-//                        .content("17일 오후 서울 송파구 잠실야구장에서 '2022 프로야구' 삼성 라이온즈와 LG 트윈스의 경기가 열린다.\n" +
-//                                "\n" +
-//                                "삼성 오재일이 LG 선수들을 향해 인사를 하고 있다." )
-//                        .regdate(LocalDateTime.now())
-//                        .build()
-//        );
-
         List<FreeBoard> list = freeBoardService.selectlist();
 
         model.addAttribute("list",list);
