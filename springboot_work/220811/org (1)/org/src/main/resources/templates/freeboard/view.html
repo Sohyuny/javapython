@@ -3,13 +3,19 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}">
 <div layout:fragment="content" class="p-3">
-    <a href="/freeboard"><h1 style="font-weight:bold;">Freeboard</h1></a>
-    <strong>dropdown >view</strong>
+<!--    <a href="/freeboard"><h1 style="font-weight:bold;">Freeboard</h1></a>-->
+<!--    <strong>dropdown >view</strong>-->
     <div class="d-flex justify-content-center">
-        <div class="w-100 p-3" style="color:black;">
+        <div class="mycont w-100 p-3" style="color:black; ">
             <!--                <h3>글쓰기</h3>-->
-            <div class="text-center my-3 mt-30 mb-30">
-                <h3 th:text="${freeboard.title}" style="font-weight:bold;"></h3>
+            <div class="text-center" style="margin-top:100px;margin-bottom:100px;">
+                <h1 th:text="${freeboard.title}" style="font-weight:bold; font-family: 'Hi Melody', cursive;"></h1>
+            </div>
+            <div class="d-flex justify-content-start" style="float:left; width:50%;">
+                <a href="/freeboard"><span class="m-5" style="font-family: 'Noto Sans KR', sans-serif; color:#444444;">SMTOWN > #SPECIAL</span></a>
+            </div>
+            <div class="d-flex justify-content-end" style="float:right; width:50%; color:#444444;">
+                <span style="font-family: 'Noto Sans KR', sans-serif; display:inline-block; width:50px;">작성일 </span><span style="font-family: 'Noto Sans KR', sans-serif;" th:text="|${#temporals.format(freeboard.regdate, 'yyyy-MM-dd')}|"></span>
             </div>
             <div class="mb-5">
                 <p th:utext="${freeboard.content}"></p>
@@ -22,36 +28,73 @@
         </div>
     </div>
 
-    <div class="m-3">
-        <a class="btn btn-outline-secondary" href="/freeboard">목록</a>
-        <a class="btn btn-outline-secondary" th:href="@{/freeboard/delete(id=${freeboard.id})}">삭제</a>
-        <a class="btn btn-outline-secondary" th:href="@{/freeboard/write(id=${freeboard.id})}">수정</a>
+    <div class="m-3 d-flex justify-content-end">
+        <a class="btn btn-outline-light" style="color:#616161" href="/freeboard">목록</a>
+        <a class="btn btn-outline-light" style="color:#616161" th:href="@{/freeboard/delete(id=${freeboard.id})}">삭제</a>
+        <a class="btn btn-outline-light" style="color:#616161" th:href="@{/freeboard/write(id=${freeboard.id})}">수정</a>
     </div>
 
-    <div>
-        <div th:each="freeboardtail : ${freeboard.list}">
-            <span th:text="${freeboardtail.t_name}"></span>
-            : <span th:text="${freeboardtail.t_content}"></span>
+
+
+    <div class="card">
+        <div class="card-header bg-light">
+            <i class="fa fa-comment fa"></i> COMMENT
+        </div>
+        <div class="m-3">
+            <div class="m-3" th:each="freeboardtail : ${freeboard.list}">
+                <span style="font-weight:bold;" th:text="${freeboardtail.t_name}"></span> <span th:text="|${#temporals.format(freeboard.regdate, 'yyyy-MM-dd HH:mm:ss')}|" style="color:#616161"></span>
+                <p th:text="${freeboardtail.t_content}"></p>
+            </div>
         </div>
     </div>
-
-    <div>
-<!--        <h5 style="font-weight:bold;">댓글</h5>-->
+    <div class="card">
+<!--        <div class="card-header bg-light">-->
+<!--            <i class="fa fa-comment fa"></i> REPLY-->
+<!--        </div>-->
         <form method="post">
-            <input type="hidden" name="id" th:value="${freeboard.id}">
-            <div>
-                작성자
-                <input class="form-control" type="text" name="t_name">
-            </div>
-            <div>
-                내용
-                <textarea name="t_content" class="form-control"></textarea>
-            </div>
-            <div class="m-3">
-                <input class="btn btn-outline-secondary" type="submit" value="작성">
-            </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <label for="replyId"><i class="fa fa-user-circle-o fa-2x"></i></label>
+                            <input type="text" class="form-control ml-2" placeholder="작성자" id="replyId" name="t_name">
+                        </div>
+                        <div class="col">
+                            <label for="replyPassword" class="ml-2"><i class="fa fa-unlock-alt fa-2x"></i></label>
+                            <input type="password" class="form-control ml-2" placeholder="****" id="replyPassword">
+                        </div>
+                    </div>
+                    <textarea name="t_content" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="(♡˘▽˘)*.¸.¸¸.행복의 축복 (♡˘▽˘)*.¸.¸¸."></textarea>
+                    <input class="btn btn-outline-light m-3"  type="submit" value="등록" style="float:right; color:#616161;">
+                </li>
+            </ul>
+        </div>
         </form>
     </div>
 
+
+
 </div>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
